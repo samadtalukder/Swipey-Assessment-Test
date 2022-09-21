@@ -8,16 +8,18 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.samad_talukder.swipeyassessmenttest"
         minSdk 23
-        targetSdk 33
+        targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_BASE_URL", '"http://api.weatherapi.com/v1/"'
+        buildConfigField "String", "API_KEY", '"346fa87e7ac74727a1a72424222405"'
+
     }
 
     buildTypes {
@@ -25,8 +27,6 @@ android {
             debuggable true
             minifyEnabled false
             applicationIdSuffix ".debug"
-            buildConfigField "String", "API_BASE_URL", '"http://api.weatherapi.com/v1/current.json"'
-            buildConfigField "String", "API_KEY", '"346fa87e7ac74727a1a72424222405"'
         }
         release {
             minifyEnabled false
@@ -50,8 +50,8 @@ android {
 dependencies {
 
     // Design Libraries
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
