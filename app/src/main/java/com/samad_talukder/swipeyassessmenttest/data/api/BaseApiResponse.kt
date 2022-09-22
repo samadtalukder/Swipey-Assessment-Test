@@ -19,15 +19,18 @@ abstract class BaseApiResponse {
             if (ConnectivityUtils.hasInternetConnection(context)) {
 
                 val response = apiCall()
+
                 if (response.isSuccessful) {
                     val body = response.body()
                     body?.let {
                         return ApiResult.Success(it)
                     }
                 }
-                return error("${response.code()} ${response.message()}")
+
+                return error(response.errorBody().toString(), response.code().toString())
             }
             return error("No Internet Connection", "")
+
         } catch (ex: Exception) {
             return error(ex.message ?: ex.toString(), "")
         }
