@@ -2,7 +2,7 @@
 The repository has contains the Swipey Assessment Test, where an Android project is created and implement their task
 
 ## Demo
-<img src="/Swipey-Assessment-Test.gif" align="top" width="25%"/>
+<img src="/swipey_assessment_test.gif" align="top" width="25%"/>
 
 ### Built With
 
