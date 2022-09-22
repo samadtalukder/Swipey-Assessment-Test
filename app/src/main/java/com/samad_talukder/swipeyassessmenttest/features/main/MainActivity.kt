@@ -10,6 +10,7 @@ import com.samad_talukder.swipeyassessmenttest.databinding.ActivityMainBinding
 import com.samad_talukder.swipeyassessmenttest.features.main.viewmodel.WeathersViewModel
 import com.samad_talukder.swipeyassessmenttest.utils.CustomProgressBar.hideProgressBar
 import com.samad_talukder.swipeyassessmenttest.utils.CustomProgressBar.showProgressBar
+import com.samad_talukder.swipeyassessmenttest.utils.DateUtils
 import com.samad_talukder.swipeyassessmenttest.utils.hideKeyboard
 import com.samad_talukder.swipeyassessmenttest.utils.loadWeatherIcon
 import com.samad_talukder.swipeyassessmenttest.utils.showToast
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.edtSearchCity.setOnEditorActionListener { v, actionId, _ ->
 
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 
                 val searchCity = binding.edtSearchCity.text.toString()
 
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (!isNull(response.data)) {
                         response.data?.let {
+                            val lastUpdatedTime = DateUtils.convertUpdatedDate(it.current.last_updated)
 
                             binding.cvWeather.visibility = View.VISIBLE
                             binding.cvDetails.visibility = View.VISIBLE
@@ -72,12 +74,16 @@ class MainActivity : AppCompatActivity() {
 
                             binding.tvLocation.text = "${it.location.name}, ${it.location.country}"
                             binding.tvTemperatureValue.text = "${it.current.temp_c}"
+                            binding.tvLastUpdated.text = "Last Updated: $lastUpdatedTime"
                             binding.tvCondition.text = it.current.condition.text
+                            binding.tvFeelsLike.text = "Real Feel ${it.current.feelslike_c}"
+
                             binding.ivWeatherIcon.loadWeatherIcon(it.current.condition.icon)
 
                             binding.tvHumidityValue.text = "${it.current.humidity} %"
-                            binding.tvNwWindValue.text = "${it.current.wind_mph} mph"
+                            binding.tvNwWindValue.text = "${it.current.wind_kph} km/h"
                             binding.tvPressureValue.text = "${it.current.pressure_in} inHg"
+                            binding.tvUvIndexValue.text = "${it.current.uv} of 10"
 
 
                         }
