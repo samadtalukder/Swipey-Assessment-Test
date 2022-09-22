@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Swipey Assessment Test</string>
+    <string name="search_city">Search for a city</string>
+    <string name="location_was_not_found">Location Was Not Found</string>
+    <string name="uv_index">UV Index</string>
+    <string name="pressure">Pressure</string>
+    <string name="nw_wind">NW Wind</string>
+    <string name="humidity">Humidity</string>
 </resources>
