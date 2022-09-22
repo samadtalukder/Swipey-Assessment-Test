@@ -1,12 +1,10 @@
 package com.samad_talukder.swipeyassessmenttest.features.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.samad_talukder.swipeyassessmenttest.data.api.ApiResult
 import com.samad_talukder.swipeyassessmenttest.databinding.ActivityMainBinding
 import com.samad_talukder.swipeyassessmenttest.features.main.viewmodel.WeathersViewModel
