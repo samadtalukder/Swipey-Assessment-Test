@@ -68,15 +68,15 @@ class MainActivity : AppCompatActivity() {
                         response.data?.let {
                             val lastUpdatedTime = DateUtils.convertUpdatedDate(it.current.last_updated)
 
-                            binding.cvWeather.visibility = View.VISIBLE
-                            binding.cvDetails.visibility = View.VISIBLE
+
                             binding.tvNoLocation.visibility = View.GONE
+                            binding.rlLocation.visibility = View.VISIBLE
 
                             binding.tvLocation.text = "${it.location.name}, ${it.location.country}"
-                            binding.tvTemperatureValue.text = "${it.current.temp_c}"
-                            binding.tvLastUpdated.text = "Last Updated: $lastUpdatedTime"
+                            binding.tvTemperatureValue.text = "${it.current.temp_c} °C"
+                            binding.tvLastUpdated.text = "$lastUpdatedTime"
                             binding.tvCondition.text = it.current.condition.text
-                            binding.tvFeelsLike.text = "Real Feel ${it.current.feelslike_c}"
+                            binding.tvFeelsLike.text = "${it.current.feelslike_c}"
 
                             binding.ivWeatherIcon.loadWeatherIcon(it.current.condition.icon)
 
@@ -94,8 +94,7 @@ class MainActivity : AppCompatActivity() {
                     hideProgressBar()
 
                     binding.tvNoLocation.visibility = View.VISIBLE
-                    binding.cvWeather.visibility = View.GONE
-                    binding.cvDetails.visibility = View.GONE
+                    binding.rlLocation.visibility = View.GONE
 
                 }
 
